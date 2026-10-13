@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مفاجأة حبيبتي ❤️</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    min-height:100vh;
+    background:
+        radial-gradient(circle at 50% 20%,#650019,#190007 45%,#020202 100%);
+    color:white;
+    font-family:Arial,"Segoe UI",sans-serif;
+    overflow-x:hidden;
+}
+
+#hearts{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:0;
+}
+
+.heart{
+    position:absolute;
+    bottom:-50px;
+    color:#ff1744;
+    animation:float linear forwards;
+    filter:drop-shadow(0 0 10px #ff1744);
+}
+
+@keyframes float{
+    from{
+        transform:translateY(0) rotate(0);
+        opacity:0;
+    }
+
+    15%{
+        opacity:.8;
+    }
+
+    to{
+        transform:translateY(-110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+.container{
+    width:min(92%,900px);
+    margin:auto;
+    position:relative;
+    z-index:2;
+}
+
+#home{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+
+.big-heart{
+    font-size:90px;
+    animation:pulse 1.2s infinite;
+    filter:
+        drop-shadow(0 0 15px #ff1744)
+        drop-shadow(0 0 45px #ff1744);
+}
+
+@keyframes pulse{
+    50%{
+        transform:scale(1.18);
+    }
+}
+
+h1{
+    margin:15px 0;
+    font-size:clamp(32px,8vw,60px);
+    color:#ff3158;
+    text-shadow:0 0 25px #ff1744;
+}
+
+.subtitle{
+    color:#ffb6c2;
+    margin-bottom:35px;
+}
+
+.countdown{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+}
+
+.box{
+    padding:22px 8px;
+    border-radius:22px;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,23,68,.4);
+    box-shadow:0 0 25px rgba(255,23,68,.12);
+    backdrop-filter:blur(10px);
+}
+
+.number{
+    font-size:clamp(32px,8vw,58px);
+    font-weight:bold;
+    text-shadow:0 0 18px #ff1744;
+}
+
+.label{
+    color:#ff7186;
+    margin-top:6px;
+}
+
+.date{
+    margin:25px 0;
+    color:#ff91a3;
+}
+
+button{
+    border:0;
+    padding:17px 32px;
+    border-radius:50px;
+    color:white;
+    background:linear-gradient(135deg,#ff1744,#9c0020);
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 0 30px rgba(255,23,68,.55);
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.07);
+}
+
+#surprise{
+    display:none;
+    padding:70px 0;
+}
+
+.section{
+    margin-bottom:70px;
+}
+
+.title{
+    text-align:center;
+    color:#ff3158;
+    font-size:clamp(28px,7vw,45px);
+    margin-bottom:25px;
+    text-shadow:0 0 20px #ff1744;
+}
+
+.card{
+    background:rgba(255,255,255,.045);
+    border:1px solid rgba(255,23,68,.3);
+    border-radius:28px;
+    padding:30px;
+    line-height:2.4;
+    font-size:17px;
+    color:#ffe7eb;
+    box-shadow:0 0 35px rgba(255,23,68,.08);
+    backdrop-filter:blur(12px);
+}
+
+.english{
+    direction:ltr;
+    text-align:left;
+}
+
+.languages{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+    gap:10px;
+}
+
+.lang{
+    padding:15px;
+    border-radius:16px;
+    background:rgba(255,255,255,.045);
+    border:1px solid rgba(255,23,68,.2);
+    text-align:center;
+}
+
+.lang small{
+    display:block;
+    color:#ff7186;
+    margin-bottom:5px;
+}
+
+.final{
+    text-align:center;
+    font-size:19px;
+}
+
+.final-heart{
+    font-size:90px;
+    margin:30px 0;
+    animation:pulse 1.2s infinite;
+}
+
+.signature{
+    padding-top:35px;
+    margin-top:35px;
+    border-top:1px solid rgba(255,23,68,.25);
+    color:#ffb6c2;
+}
+
+.signature strong{
+    display:block;
+    color:#ff1744;
+    font-size:30px;
+    margin-top:8px;
+    text-shadow:0 0 20px #ff1744;
+}
+
+@media(max-width:600px){
+    .countdown{
+        gap:5px;
+    }
+
+    .box{
+        padding:17px 4px;
+    }
+
+    .card{
+        padding:22px;
+        font-size:16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div id="hearts"></div>
+
+<section id="home">
+
+<div class="container">
+
+<div class="big-heart">❤️</div>
+
+<h1>باقي على يومك المميز</h1>
+
+<p class="subtitle">
+هذه مجرد نسخة تجريبية من المفاجأة ❤️
+</p>
+
+<div class="countdown">
+
+<div class="box">
+<div class="number" id="days">03</div>
+<div class="label">أيام</div>
+</div>
+
+<div class="box">
+<div class="number" id="hours">14</div>
+<div class="label">ساعة</div>
+</div>
+
+<div class="box">
+<div class="number" id="minutes">27</div>
+<div class="label">دقيقة</div>
+</div>
+
+<div class="box">
+<div class="number" id="seconds">42</div>
+<div class="label">ثانية</div>
+</div>
+
+</div>
+
+<div class="date">
+🎂 14 أكتوبر — 00:00 ❤️
+</div>
+
+<button onclick="openSurprise()">
+🎁 افتحي المفاجأة
+</button>
+
+</div>
+</section>
+
+
+<section id="surprise">
+
+<div class="container">
+
+<div class="section">
+
+<h2 class="title">إلى أجمل إنسانة ❤️</h2>
+
+<div class="card">
+
+يا حبيبتي ويا أجمل إنسانة دخلت حياتي أريدك تعرفي أن وجودك بالنسبة لي ليس شيئًا عابرًا فأنت أصبحت جزءًا من أيامي ومن قلبي ومن كل الأشياء الجميلة التي أحبها في هذه الحياة أحبك بكل تفاصيلك أحب ضحكتك وصوتك وطريقة كلامك ونظراتك وعفويتك واهتمامك وغيرتك وحتى الأشياء التي تعتبرينها عيوبًا أنا أحبها لأنها جزء منك وأنت بالنسبة لي لا تحتاجين أن تكوني مثالية حتى أحبك فأنا أحبك كما أنت بكل لحظاتك بكل تفاصيلك بكل فرحك وبكل حزنك وأتمنى أن أكون دائمًا الشخص الذي يستطيع أن يرسم ابتسامة على وجهك عندما يكون يومك صعبًا وأن أكون بجانبك عندما تحتاجين إلى شخص يسمعك ويحتويك وأتمنى أن نصنع معًا آلاف الذكريات الجميلة وأن يأتي علينا كل عيد ميلاد ونحن أقرب من السنة التي قبلها وأتمنى أن تحققي كل أحلامك وأن تبقى عيناك مليئة بالفرح وأن يبقى قلبك بعيدًا عن الحزن وأريدك تعرفي أنني مهما كتبت ومهما تكلمت لن أستطيع أن أشرح لك مقدار حبي لأن بعض المشاعر أكبر من الكلمات وكل عام وأنت حبيبتي وكل عام وأنت أجمل شيء في حياتي وكل عام وأنا أحبك أكثر ❤️
+
+</div>
+</div>
+
+
+<div class="section">
+
+<h2 class="title">For My Love ❤️</h2>
+
+<div class="card english">
+
+My love I want you to know that you are one of the most beautiful things that ever happened to me I love you for who you are I love your smile your voice your eyes your laugh your kindness your little habits and every tiny detail that makes you the person I fell in love with I do not need you to be perfect because I love you exactly as you are I want to be beside you in your happiest moments and in your hardest days I want to be the person you can talk to when you need someone to listen and the person who makes you smile when life feels difficult I hope this birthday brings you happiness peace success and everything your heart dreams about I hope we create thousands of beautiful memories together and I hope that every year I get to tell you how much more I love you Happy birthday my love ❤️
+
+</div>
+</div>
+
+
+<div class="section">
+
+<h2 class="title">أحبك بـ 200 لغة 🌎❤️</h2>
+
+<div class="languages">
+
+<script>
+
+const loveLanguages = [
+
+["العربية","أحبك"],
+["English","I love you"],
+["Français","Je t’aime"],
+["Español","Te amo"],
+["Italiano","Ti amo"],
+["Português","Eu te amo"],
+["Deutsch","Ich liebe dich"],
+["Nederlands","Ik hou van jou"],
+["Türkçe","Seni seviyorum"],
+["Русский","Я тебя люблю"],
+["Українська","Я тебе кохаю"],
+["Polski","Kocham cię"],
+["Čeština","Miluji tě"],
+["Ελληνικά","Σ' αγαπώ"],
+["Română","Te iubesc"],
+["Magyar","Szeretlek"],
+["Albanian","Të dua"],
+["Hrvatski","Volim te"],
+["Srpski","Волим те"],
+["Български","Обичам те"],
+["Slovenčina","Ľúbim ťa"],
+["Slovenščina","Ljubim te"],
+["Svenska","Jag älskar dig"],
+["Norsk","Jeg elsker deg"],
+["Dansk","Jeg elsker dig"],
+["Suomi","Rakastan sinua"],
+["Íslenska","Ég elska þig"],
+["Eesti","Ma armastan sind"],
+["Latviešu","Es tevi mīlu"],
+["Lietuvių","Aš tave myliu"],
+["Afrikaans","Ek is lief vir jou"],
+["Swahili","Nakupenda"],
+["Zulu","Ngiyakuthanda"],
+["Xhosa","Ndiyakuthanda"],
+["Yoruba","Mo nifẹ rẹ"],
+["Igbo","A hụrụ m gị n'anya"],
+["Somali","Waan ku jeclahay"],
+["Amharic","እወድሃለሁ"],
+["Hausa","Ina son ku"],
+["Kinyarwanda","Ndagukunda"],
+["Malagasy","Tiako ianao"],
+["Georgian","მე შენ მიყვარხარ"],
+["Armenian","Ես քեզ սիրում եմ"],
+["Hebrew","אני אוהב אותך"],
+["Persian","دوستت دارم"],
+["Urdu","میں تم سے محبت کرتا ہوں"],
+["Pashto","زه تا سره مینه لرم"],
+["Kurdish","Ez ji te hez dikim"],
+["Kazakh","Мен сені сүйемін"],
+["Uzbek","Men seni sevaman"],
+["Kyrgyz","Мен сени сүйөм"],
+["Turkmen","Men seni söýýärin"],
+["Mongolian","Би чамд хайртай"],
+["Nepali","म तिमीलाई माया गर्छु"],
+["Hindi","मैं तुमसे प्यार करता हूँ"],
+["Bengali","আমি তোমাকে ভালোবাসি"],
+["Punjabi","ਮੈਂ ਤੈਨੂੰ ਪਿਆਰ ਕਰਦਾ ਹਾਂ"],
+["Gujarati","હું તને પ્રેમ કરું છું"],
+["Marathi","मी तुझ्यावर प्रेम करतो"],
+["Tamil","நான் உன்னை காதலிக்கிறேன்"],
+["Telugu","నేను నిన్ను ప్రేమిస్తున్నాను"],
+["Kannada","ನಾನು ನಿನ್ನನ್ನು ಪ್ರೀತಿಸುತ್ತೇನೆ"],
+["Malayalam","ഞാൻ നിന്നെ സ്നേഹിക്കുന്നു"],
+["Sinhala","මම ඔයාට ආදරෙයි"],
+["Thai","ฉันรักคุณ"],
+["Vietnamese","Anh yêu em"],
+["Korean","사랑해"],
+["Japanese","愛してる"],
+["Chinese","我爱你"],
+["Cantonese","我愛你"],
+["Indonesian","Aku cinta kamu"],
+["Malay","Saya cintakan awak"],
+["Filipino","Mahal kita"],
+["Cebuano","Gihigugma tika"],
+["Javanese","Aku tresna karo kowe"],
+["Sundanese","Abdi bogoh ka anjeun"],
+["Māori","Aroha ahau ki a koe"],
+["Samoan","Ou te alofa ia te oe"],
+["Tongan","ʻOku ou ʻofa atu"],
+["Hawaiian","Aloha au iā ʻoe"],
+["Fijian","Au domoni iko"],
+["Tahitian","Ua here vau ia oe"],
+["Haitian Creole","Mwen renmen ou"],
+["Jamaican Patois","Mi luv yuh"],
+["Papiamento","Mi ta stimabo"],
+["Irish","Is breá liom tú"],
+["Welsh","Rwy'n dy garu di"],
+["Scottish Gaelic","Tha gaol agam ort"],
+["Basque","Maite zaitut"],
+["Catalan","T'estimo"],
+["Galician","Quérote"],
+["Breton","Me az kar"],
+["Frisian","Ik hâld fan dy"],
+["Luxembourgish","Ech hunn dech gär"],
+["Maltese","Inħobbok"],
+["Latin","Te amo"],
+["Esperanto","Mi amas vin"],
+["Interlingua","Io te amo"],
+["Occitan","T'aimi"],
+["Corsican","Ti tengu caru"],
+["Sicilian","Ti amu"],
+["Sardinian","T'amo"],
+["Asturian","Quiérote"],
+["Aragonese","T'estimo"],
+["Quechua","Kuyayki"],
+["Guarani","Rohayhu"],
+["Hmong","Kuv hlub koj"],
+["Greenlandic","Asavakkit"],
+["Navajo","Ayóó án ííníshní"],
+["Cherokee","ᎬᎨᏳᎢ"],
+["Tok Pisin","Mi laikim yu"],
+["Bislama","Mi lavem yu"],
+["Marshallese","Ij yokwe eok"],
+["Palauan","A kultir"],
+["Chamorro","Hu guaiya hao"],
+["Nauruan","Ekwae"],
+["Tibetan","ང་ཁྱོད་ལ་དགའ།"],
+["Khmer","ខ្ញុំស្រឡាញ់អ្នក"],
+["Lao","ຂ້ອຍຮັກເຈົ້າ"],
+["Burmese","မင်းကိုချစ်တယ်"],
+["Uyghur","مەن سېنى سۆيىمەن"],
+["Tatar","Мин сине яратам"],
+["Bashkir","Мин һине яратам"],
+["Tajik","Ман туро дӯст медорам"],
+["Azerbaijani","Mən səni sevirəm"],
+["Gagauz","Seni seviyorum"],
+["Ossetian","Æз дæ уарзын"],
+["Yiddish","איך האָב דיך ליב"],
+["Macedonian","Те сакам"],
+["Bosnian","Volim te"],
+["Montenegrin","Volim te"],
+["Belarusian","Я цябе кахаю"],
+["Faroese","Eg elski teg"],
+["Romansh","Jeu carezel te"],
+["Saterland Frisian","Iek lieuw do"],
+["Cornish","My a'th kar"],
+["Manx","Ta graih aym ort"],
+["Breton","Me az kar"],
+["Occitan","T'aimi"],
+["Sardinian","T'amo"],
+["Sicilian","Ti amu"],
+["Neapolitan","T'amo"],
+["Venetian","Te amo"],
+["Ligurian","T'amo"],
+["Friulian","Ti vuei ben"],
+["Lombard","Te voeuri ben"],
+["Piedmontese","I veuj bin"],
+["Emilian","A t'am"],
+["Romagnol","A t'am"],
+["Asturian","Quiérote"],
+["Leonese","Quiérote"],
+["Aragonese","T'estimo"],
+["Mirandese","You t'amo"],
+["Walloon","Dji t'aime"],
+["Picard","J't'aime"],
+["Norman","J't'aime"],
+["Breton","Me az kar"],
+["Fijian","Au domoni iko"],
+["Tahitian","Ua here vau ia oe"],
+["Tongan","ʻOku ou ʻofa atu"],
+["Samoan","Ou te alofa ia te oe"],
+["Maori","Aroha ahau ki a koe"],
+["Hawaiian","Aloha au iā ʻoe"],
+["Chamorro","Hu guaiya hao"],
+["Marshallese","Ij yokwe eok"],
+["Palauan","A kultir"],
+["Kiribati","I tangiriko"],
+["Tuvaluan","Au e alofa ia koe"],
+["Niuean","Ko e ofa atu"],
+["Cook Islands Māori","Kua aroa au ia koe"],
+["Tahitian","Ua here vau ia oe"],
+["Tokelauan","E alofa au ia te koe"],
+["West Frisian","Ik hâld fan dy"],
+["Afrikaans","Ek is lief vir jou"],
+["Shona","Ndinokuda"],
+["Sesotho","Kea u rata"],
+["Setswana","Ke a go rata"],
+["Tswana","Ke a go rata"],
+["Lingala","Nalingi yo"],
+["Kikongo","Mono ke zola nge"],
+["Wolof","Dama la bëgg"],
+["Fula","Mi yidi ma"],
+["Bambara","M'bi fɛ"],
+["Akan","Me dɔ wo"],
+["Twi","Me dɔ wo"],
+["Ewe","Melɔ̃ wò"],
+["Ga","Mli wo"],
+["Tigrinya","የፍቕረኪ እየ"],
+["Oromo","Sin jaalladha"],
+["Amharic","እወድሃለሁ"],
+["Somali","Waan ku jeclahay"],
+["Swahili","Nakupenda"],
+["Zulu","Ngiyakuthanda"],
+["Xhosa","Ndiyakuthanda"],
+["Shona","Ndinokuda"],
+["Sesotho","Kea u rata"],
+["Tswana","Ke a go rata"],
+["Afrikaans","Ek is lief vir jou"],
+["Malagasy","Tiako ianao"],
+["Mauritian Creole","Mo kontan twa"],
+["Seychellois Creole","Mon kontan ou"],
+["Haitian Creole","Mwen renmen ou"],
+["Papiamento","Mi ta stimabo"],
+["Jamaican Patois","Mi luv yuh"],
+["English","I love you"],
+["French","Je t’aime"],
+["Spanish","Te amo"],
+["Italian","Ti amo"],
+["Portuguese","Eu te amo"],
+["German","Ich liebe dich"],
+["Arabic","أحبك"]
+
+];
+
+loveLanguages.forEach((item,i)=>{
+
+    const div=document.createElement("div");
+
+    div.className="lang";
+
+    div.innerHTML=`
+        <small>${i+1} · ${item[0]}</small>
+        ${item[1]}
+    `;
+
+    document.querySelector(".languages").appendChild(div);
+
+});
+
+</script>
+
+</div>
+</div>
+
+
+<div class="section">
+
+<h2 class="title">أحبك بكل تفاصيلك ❤️</h2>
+
+<div class="card final">
+
+أحبك أنت بكل تفاصيلك أحب ضحكتك وأحب صوتك وأحب عيونك وأحب طريقة كلامك وأحب عفويتك وأحب طيبتك وأحب اهتمامك وأحب غيرتك وأحب هدوءك وأحب جنونك وأحب كل شيء يجعلك مختلفة عن الجميع أحبك في أجمل أيامك وأحبك في أصعب أيامك أحبك عندما تضحكين وأحبك عندما تكونين حزينة أحبك عندما تكونين قوية وأحبك عندما تحتاجين إلى شخص يقف بجانبك أنت بالنسبة لي لست مجرد حبيبة أنت راحتي وفرحتي وأجمل تفاصيل أيامي وأتمنى أن أبقى بجانبك في كل أعياد ميلادك القادمة وأن نصنع معًا ذكريات لا تنتهي وأريدك أن تعرفي أن قلبي اختارك أنت ولن يتعب من اختيارك ❤️
+
+<div class="final-heart">❤️</div>
+
+<div class="signature">
+
+من رحيم
+
+<strong>لأفضل وردة في حياته 🌹❤️</strong>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<script>
+
+function createHeart(){
+
+    const h=document.createElement("div");
+
+    h.className="heart";
+
+    h.textContent=Math.random()>0.2?"❤️":"💗";
+
+    h.style.left=Math.random()*100+"%";
+
+    h.style.fontSize=(14+Math.random()*25)+"px";
+
+    h.style.animationDuration=(5+Math.random()*7)+"s";
+
+    document.getElementById("hearts").appendChild(h);
+
+    setTimeout(()=>{
+        h.remove();
+    },13000);
+}
+
+setInterval(createHeart,400);
+
+
+function openSurprise(){
+
+    document.getElementById("home").style.display="none";
+
+    document.getElementById("surprise").style.display="block";
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+</script>
+
+</body>
+</html>
